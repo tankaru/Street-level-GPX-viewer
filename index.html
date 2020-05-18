@@ -1,0 +1,83 @@
+
+<html>
+<head>
+	<title>Street-level GPX viewer</title>
+	<meta charset="utf-8"/>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
+	<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <script src='https://unpkg.com/mapillary-js@2.20.0/dist/mapillary.min.js'></script>
+    <link href='https://unpkg.com/mapillary-js@2.20.0/dist/mapillary.min.css' rel='stylesheet' />
+<style>
+
+#mly {
+	width: 1280px;
+	height: 480px;
+
+}
+#mapcontainer {
+	width: 400px;
+	height: 480px;
+
+}
+#attributions {
+	margin: 10px;
+
+	background-color: #aaa;
+}
+
+#map, #photo, #attributions {
+	float: left;
+	margin: 10px;
+}
+
+#map {
+
+}
+
+#photo {
+
+}
+
+#view {
+
+}
+
+</style>
+
+</head>
+
+<body>
+<div id='view'>
+	<div id="map">
+		<div id='mapcontainer'></div>
+	</div>
+	<div id="photo">
+		<div id='mly'></div>
+	</div>
+
+
+	<input type="file" id="file-selector" accept=".gpx">
+</div>
+	<div id="attributions">
+		<p>Attributions
+		<ul>
+			<li>Map:
+				<ul>
+					<li><a href="https://www.openstreetmap.org/copyright">(C)OpenStreetMap contributors</a></li>
+					<li><a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院　全国最新写真（シームレス）、全国ランドサットモザイク画像(データソース：Landsat8画像（GSI,TSIC,GEO Grid/AIST）, Landsat8画像（courtesy of the U.S. Geological Survey）, 海底地形（GEBCO）)、世界衛星モザイク画像(obtained from site https://lpdaac.usgs.gov/data_access maintained by the NASA Land Processes Distributed Active Archive Center (LP DAAC), USGS/Earth Resources Observation and Science (EROS) Center, Sioux Falls, South Dakota, (Year). Source of image data product.)</a></li>
+				</ul>
+
+			<li>Display map: <a href="https://leafletjs.com/">Leaflet</a></li>
+			<li>Photo: <a href="">Mapillary</a></li>
+		</ul>
+		<p>Bug report at <a href="https://github.com/tankaru/">Github</a></p>
+	</div>
+<script src="leaflet.rotatedMarker.js"></script>
+<script src="togeojson.js"></script>
+<script src="leaflet-hash.js"></script>
+<script src="main.js"></script>
+</body>
+
+
+</html>
