@@ -44,6 +44,7 @@ function openGpx(file){
 			const layer = L.polyline([latlngs[i],latlngs[i+1]], {color: color});
 			layers.push(layer);
 		}
+		if(gpx_line) gpx_line.remove();
 		gpx_line = L.featureGroup(layers).addTo(map);
 		//---
 		/*
@@ -333,7 +334,9 @@ function initPhoto(){
 			console.log("nodechanged");
 
 			map.panTo(node.latLon);
-			showGpxOnPhoto(gpx_points, eleFromGpx(node.latLon.lat, node.latLon.lon));
+			const ele = eleFromGpx(node.latLon.lat, node.latLon.lon);
+			document.getElementById("elevation").value = Math.round(ele);
+			showGpxOnPhoto(gpx_points, ele);
 
 		});
 		mly.on(Mapillary.Viewer.povchanged, function(node) {
@@ -347,7 +350,10 @@ function initPhoto(){
 
 }
 
-
+function onElevationChange(){
+	const ele = document.getElementById("elevation").value;
+	showGpxOnPhoto(gpx_points, ele);
+}
 
 function initMap(){
 	//地図を表示するdiv要素のidを設定

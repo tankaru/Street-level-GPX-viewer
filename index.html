@@ -22,11 +22,11 @@
 }
 #attributions {
 	margin: 10px;
-
+	font-size: x-small;
 	background-color: #aaa;
 }
 
-#map, #photo, #attributions {
+#map, #photo, #attributions, #controller {
 	float: left;
 	margin: 10px;
 }
@@ -48,6 +48,8 @@
 </head>
 
 <body>
+	<h1>Street-level GPX viewer</h1>
+	<p>360 Mapillary photo required along the gpx route.</p>
 <div id='view'>
 	<div id="map">
 		<div id='mapcontainer'></div>
@@ -55,9 +57,10 @@
 	<div id="photo">
 		<div id='mly'></div>
 	</div>
-
-
-	<input type="file" id="file-selector" accept=".gpx">
+</div>
+<div id="controller">
+	Open GPX file: <input type="file" id="file-selector" accept=".gpx">
+	<br>Adjust elevation: <input type="number" id="elevation" onchange="onElevationChange()"> m
 </div>
 	<div id="attributions">
 		<p>Attributions
